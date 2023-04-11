@@ -11,7 +11,7 @@ function start() {
 }
 start();
 
-const personalMoveBD = {
+const personalMoveDB = {
     count: numberOfFilms,
     movies: {},
     actors: {},
@@ -25,22 +25,22 @@ function rememberMyFilms() {
               b = +prompt('На сколько оцените его?', '');
 
         if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-            personalMoveBD.movies[a] = b;
+            personalMoveDB.movies[a] = b;
             console.log('done!');
         } else {
             console.log('error');
             i--;
-        }
+        }2
     }
 }
 rememberMyFilms();
 
 function detectPersonalLevel() {
-    if (personalMoveBD.count <= 10){
+    if (personalMoveDB.count <= 10){
         console.log('Просмотрено довольно мало фильмов');
-    } else if (personalMoveBD.count >= 10 && personalMoveBD.count < 30) {
+    } else if (personalMoveDB.count >= 10 && personalMoveDB.count < 30) {
         console.log('Вы классический зритель');
-    } else if (personalMoveBD.count >= 30) {
+    } else if (personalMoveDB.count >= 30) {
         console.log("Вы киноман");
     } else  {
         console.log('Произошла ошибка');
@@ -50,14 +50,15 @@ detectPersonalLevel();
 
 function showMyDB(hidden) {
     if (!hidden){
-        console.log(personalMoveBD)
+        console.log(personalMoveDB)
     }
 }
-showMyDB(personalMoveBD.privat);
+showMyDB(personalMoveDB.privat);
 
 function writeYourGenres() {
     for (let i = 1; i <= 3; i++) {
-        personalMoveBD.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
+        personalMoveDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
     }
 }
 writeYourGenres();
+
